@@ -1,0 +1,33 @@
+/* src/theme.css */
+:root {
+  /* couleurs HSL (sans hsl()) pour Tailwind v4 */
+  --background: 222 47% 11%;         /* fond sombre */
+  --foreground: 210 40% 98%;
+
+  --primary: 199 89% 48%;            /* cyan/bleu */
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 262 83% 58%;          /* violet */
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217 19% 27%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 199 89% 48%;
+  --accent-foreground: 210 40% 98%;
+
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+
+  --border: 217 19% 27%;
+  --input: 217 19% 27%;
+  --ring: 199 89% 48%;
+}
+
+:root { color-scheme: dark; }
+
+html, body, #root {
+  background-color: hsl(var(--background)); /* même variable que ton thème */
+  /* bonus anti rebond blanc */
+  overscroll-behavior: none; /* chrome/firefox */
+}

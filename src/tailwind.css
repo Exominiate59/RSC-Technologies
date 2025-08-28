@@ -1,0 +1,9 @@
+/* src/tailwind.css — version Tailwind v4 */
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+/* (optionnel) tes utilitaires/animations perso */
+@layer utilities {
+  .animate-float { animation: float 3s ease-in-out infinite; }
+  /* ...tes autres utilitaires perso si tu veux les garder... */
+}
