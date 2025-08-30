@@ -10,14 +10,14 @@ const About = () => {
   // Stats selon le mode (plus crédible côté portfolio)
   const stats = mode === "rsc"
     ? [
-        { icon: Users, label: 'Clients accompagnés', value: '3+', color: 'text-cyan-400' },
-        { icon: Award, label: 'Projets livrés', value: '10+', color: 'text-blue-400' },
-        { icon: Bug,   label: 'Vulnérabilités corrigées', value: '25+', color: 'text-purple-400' },
+        { icon: Users, label: 'Technos maîtrisées', value: '10+', color: 'text-cyan-400' },
+        { icon: Award, label: 'Heures de pratique', value: '500+', color: 'text-blue-400' },
+        { icon: Bug,   label: 'CTF / Labs TryHackMe', value: '30+', color: 'text-purple-400' },
       ]
     : [
-        { icon: Award, label: 'Projets perso/école', value: '10+', color: 'text-cyan-400' },
-        { icon: Bug,   label: 'Labs / TryHackMe', value: 'XX', color: 'text-blue-400' },
-        { icon: Users, label: 'Dispo alternance', value: 'Oui', color: 'text-purple-400' },
+        { icon: Award, label: 'Projets perso/école', value: '45+', color: 'text-cyan-400' },
+        { icon: Bug,   label: 'Labs / TryHackMe', value: '30+', color: 'text-blue-400' },
+        { icon: Users, label: 'Dispo alternance/stage', value: 'Non', color: 'text-purple-400' },
       ];
 
   const values = [
