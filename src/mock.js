@@ -68,13 +68,15 @@ export const mockData = {
   ],
 
   experience: [
-    { id: 1, year: "2025", title: "Création de RSC Technologies", description: "Lancement de mon entreprise spécialisée en développement web sécurisé" },
-    { id: 2, year: "2023", title: "Epitech", description: "Parcours d'ingénieri informatique, focus cybersécurité & dev" }
+    { id: 1, year: "2025", title: "Portfolio public", description: "Mise en ligne de mon site & de mes projets" },
+    { id: 2, year: "2025", title: "Création de RSC Technologies", description: "Lancement de mon entreprise spécialisée en développement web sécurisé" },
+    { id: 3, year: "2024 - 2025", title: "Projets marquants", description: "PIPETO – Reverse Binary / CI • Build, Test & Mirror / EpyTodo – API REST" },
+    { id: 4, year: "2023", title: "Epitech", description: "Parcours d'ingénieri informatique, focus cybersécurité & dev" }
   ],
 
   technologies: [
-    "React", "Node.js", "Express", "EJS", "MongoDB", "MySQL", "JavaScript", "TypeScript",
-    "HTML", "CSS", "TailwindCSS", "Docker", "OWASP", "Burp Suite", "Pentesting", "Security Audit" 
+    "React", "Node.js", "Express", "EJS", "MongoDB", "MySQL", "JavaScript", "TypeScript", "C", "Lua", "Python",
+    "C++", "HTML", "CSS", "TailwindCSS", "Docker", "OWASP", "Burp Suite", "Pentesting", "Security Audit" 
   ],
 
   social: {
@@ -92,7 +94,7 @@ export const mockData = {
       hero: {
         title: "RSC Technologies",
         subtitle: "Développement Web & Cybersécurité — par Antoine Rousselle",
-        description: "Nous concevons des solutions web sécurisées et performantes pour propulser votre entreprise vers l'avenir digital.",
+        description: "Je conçois des solutions web sécurisées et performantes pour propulser votre entreprise vers l'avenir digital.",
         cta: "Découvrir nos services",
         cta2: "Voir nos réalisations"
       }
@@ -102,7 +104,7 @@ export const mockData = {
         title: "Antoine Rousselle",
         subtitle: "Développeur Web (React/Next.js) & passion cybersécurité",
         description: "Je construis des projets modernes côté front/back et j’intègre la sécurité dès le début (DevSecOps).",
-        cta: "Télécharger mon CV",
+        cta: "Voir mon CV",
         cta2: "Voir mes projets"
       },
       about:
@@ -118,10 +120,10 @@ export const mockData = {
       projects: [
        {
          id: 1,
-         title: "Corewar (Epitech)",
-         description: "Projet système : création d’un assembleur et d’une VM inspirée du jeu Corewar.",
-         technologies: ["C", "ASM"],
-         image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=800&fit=crop",
+         title: "EpyTodo – API REST",
+         description: "Développement d’une API RESTful en Node.js permettant la gestion d’une todo-list avec système d’authentification et base de données.",
+         technologies: ["Node.js","Express","MySQL","REST API","JavaScript"],
+         image: "todo.jpeg",
          category: "Projet École",
          status: "Completed",
          repo: "https://github.com/antoinerousselle/corewar"
@@ -149,10 +151,10 @@ export const mockData = {
          title: "Muscu App (Flutter)",
          description: "Application mobile Flutter avec modèles 3D interactifs pour visualiser les exercices par muscle.",
          technologies: ["Flutter", "Dart", "3D"],
-         image: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=1200&h=800&fit=crop",
+         image: "/EpiGym.png",
          category: "Développement Mobile",
          status: "In Progress",
-         repo: "https://github.com/antoinerousselle/muscu-app" // remplace si tu veux
+         repo: "https://github.com/antoinerousselle/muscu-app"
        },
        {
          id: 5,
@@ -162,7 +164,17 @@ export const mockData = {
          image: "https://images.unsplash.com/photo-1590608897129-79da98d15969?w=1200&h=800&fit=crop",
          category: "Développement Web",
          status: "In Progress",
-         repo: "https://github.com/antoinerousselle/muscu-web" // remplace si tu veux
+         repo: "https://github.com/antoinerousselle/muscu-web"
+       },
+       {
+         id: 5,
+         title: "Secured",
+         description: "Projet académique Epitech visant à développer en C une bibliothèque de tables de hachage avec gestion des collisions et tests unitaires.",
+         technologies: ["React", "Node.js", "MongoDB", "Tailwind"],
+         image: "/secured.png",
+         category: "Développement Web",
+         status: "Completed",
+         repo: "https://github.com/Exominiate59/Secured"
        },
      ]
     }
