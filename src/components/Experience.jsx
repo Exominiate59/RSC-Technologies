@@ -73,16 +73,16 @@ const Experience = () => {
         {/* Stats section */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-white mb-2">2020</div>
+            <div className="text-3xl md:text-4xl font-bold text-white mb-2">2025</div>
             <div className="text-gray-400">Année de création</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">100+</div>
+            <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">45+</div>
             <div className="text-gray-400">Projets réalisés</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">50+</div>
-            <div className="text-gray-400">Clients satisfaits</div>
+            <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">{"< 24h"}</div>
+            <div className="text-gray-400">Délai de réponse</div>
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold text-purple-400 mb-2">24/7</div>
@@ -95,7 +95,7 @@ const Experience = () => {
           <h3 className="text-2xl font-bold text-white mb-4">Vision 2025</h3>
           <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">
             Continuer à innover dans le domaine de la cybersécurité et du développement web, 
-            en accompagnant nos clients vers une transformation digitale sécurisée et durable.
+            en accompagnant mes clients vers une transformation digitale sécurisée et durable.
           </p>
         </div>
       </div>

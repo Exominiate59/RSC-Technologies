@@ -47,7 +47,7 @@ const Footer = () => {
           {/* Bloc 1 */}
           <div className="space-y-6">
             <div className="flex items-center space-x-2">
-              <Shield className="h-8 w-8 text-cyan-400" />
+              <img src="./logo.png" alt='Logo RSC Technologies' className="h-12 w-12 text-cyan-400" />
               <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                 {mode === 'rsc' ? 'RSC Technologies' : 'Portfolio — Antoine Rousselle'}
               </span>
@@ -82,6 +82,7 @@ const Footer = () => {
               <div className="space-y-2">
                 <a
                   href={mockData.modes.portfolio.cvUrl}
+                  download
                   className="inline-flex items-center gap-2 text-sm text-cyan-400 hover:underline"
                 >
                   <FileDown className="w-4 h-4" />
@@ -148,7 +149,7 @@ const Footer = () => {
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               {mode === 'rsc'
-                ? 'Suivez-nous pour nos actualités et conseils en cybersécurité.'
+                ? 'Suivez-moi pour nos actualités et conseils en cybersécurité.'
                 : 'Projets, code et parcours à jour sur mes profils.'}
             </p>
           </div>

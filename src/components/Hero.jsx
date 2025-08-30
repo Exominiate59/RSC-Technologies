@@ -44,7 +44,15 @@ const Hero = () => {
           <div className="flex flex-col gap-6 justify-center items-center">
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
-                onClick={() => scrollToSection(mode === "rsc" ? "#services" : "#projects")}
+                onClick={() => {
+                  if (mode === "rsc") {
+                    scrollToSection("#services")
+                  } else {
+                    window.open("/cv.pdf", "_blank") // ouvre dans nouvel onglet
+                    // ou:
+                    // window.location.href = "/cv.pdf" // télécharge/ouvre selon navigateur
+                  }
+                }}
                 size="lg"
                 className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0 shadow-lg shadow-cyan-500/25 transition-all duration-300 hover:scale-105"
               >
