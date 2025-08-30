@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { ExternalLink, Github, Filter } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { Button } from './ui/button';
@@ -10,12 +10,33 @@ const Projects = () => {
   const { mode } = useMode();
   const list = mode === 'rsc' ? mockData.projects : mockData.modes.portfolio.projects;
 
-  const [activeFilter, setActiveFilter] = useState('All');
-
   const categories = useMemo(() => {
     const cats = Array.from(new Set(list.map(p => p.category)));
     return ['All', ...cats];
   }, [list]);
+
+  const getFilterFromURL = () => {
+    const qs = new URLSearchParams(window.location.search);
+    const f = qs.get("filter");
+    return f && categories.includes(f) ? f : "All";
+  };
+
+  const [activeFilter, setActiveFilter] = useState(getFilterFromURL);
+
+  useEffect(() => {
+    const onPop = () => setActiveFilter(getFilterFromURL());
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categories.join("|")]);
+
+  const updateFilter = (next) => {
+    setActiveFilter(next);
+    const url = new URL(window.location.href);
+    if (next && next !== "All") url.searchParams.set("filter", next);
+    else url.searchParams.delete("filter");
+    window.history.replaceState({}, "", url); // sans recharger
+  };
 
   const filtered = activeFilter === 'All'
     ? list
@@ -29,6 +50,13 @@ const Projects = () => {
     }
   };
 
+  const scrollToContact = () => {
+    const el = document.getElementById("contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
       <div className="max-w-7xl mx-auto">
@@ -36,13 +64,13 @@ const Projects = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              {mode === 'rsc' ? 'Nos Projets' : 'Mes Projets'}
+              {mode === 'rsc' ? 'Mes Projets' : 'Mes Projets'}
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             {mode === 'rsc'
-              ? 'Découvrez nos réalisations en développement web sécurisé et cybersécurité'
-              : 'Sélection de projets personnels et scolaires (code et write-ups)'}
+              ? 'Découvrez mes réalisations en développement web sécurisé et cybersécurité'
+              : 'Sélection de projets personnels et scolaires'}
           </p>
         </div>
 
@@ -53,7 +81,7 @@ const Projects = () => {
             <Button
               key={cat}
               variant={activeFilter === cat ? 'default' : 'outline'}
-              onClick={() => setActiveFilter(cat)}
+              onClick={() => updateFilter(cat)}
               className={
                 activeFilter === cat
                   ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white border-0'
@@ -121,7 +149,12 @@ const Projects = () => {
                     </Button>
                   )}
                   {project.repo && (
-                    <Button size="sm" variant="outline" className="border-gray-600 text-gray-400 hover:border-gray-500 hover:text-gray-300">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-gray-600 text-gray-400 hover:border-gray-500 hover:text-gray-300"
+                      onClick={() => window.open(project.repo, "_blank")}
+                    >
                       <Github className="w-4 h-4" />
                     </Button>
                   )}
@@ -139,10 +172,16 @@ const Projects = () => {
             </h3>
             <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
               {mode === 'rsc'
-                ? 'Parlez-nous de votre vision et transformons-la en réalité sécurisée.'
+                ? 'Parlez-moi de votre vision et transformons-la en réalité sécurisée.'
                 : 'Consultez mon GitHub ou demandez mon CV pour voir d’autres travaux.'}
             </p>
-            {/* Laisse ton Button si tu veux */}
+            <Button 
+              size="lg"
+              onClick={scrollToContact}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white border-0 shadow-lg shadow-purple-500/25"
+            >
+              Demande de devis
+            </Button>
           </div>
         </div>
       </div>
