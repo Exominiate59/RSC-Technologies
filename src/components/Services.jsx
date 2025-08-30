@@ -3,6 +3,7 @@ import { Code, Shield, Lock, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { mockData } from '../mock';
+import CtaSection from './CtaSection';
 
 const Services = () => {
   const iconMap = {
@@ -21,6 +22,18 @@ const Services = () => {
     Code: 'hover:border-cyan-500/50',
     Shield: 'hover:border-blue-500/50',
     Lock: 'hover:border-purple-500/50'
+  };
+
+  const serviceToCategory = {
+    "Développement Web": "Web Development",
+    "Cybersécurité": "Cybersecurity",
+    "DevSecOps": "CI/CD",
+  };
+
+  const scrollToSection = (href) => {
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -69,9 +82,25 @@ const Services = () => {
                     ))}
                   </div>
 
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 transition-all duration-300 group"
+                    onClick={() => {
+                      const filter = serviceToCategory[service.title] ?? "All";
+                      const url = new URL(window.location.href);
+                      if (filter && filter !== "All")
+                        url.searchParams.set("filter", filter);
+                      else 
+                        url.searchParams.delete("filter");
+                      url.hash = "#projects"; // <- même id que la section
+                      window.history.pushState({}, "", url);
+
+                      // 2) prévenir Projects qu’il doit relire l’URL
+                      window.dispatchEvent(new PopStateEvent("popstate"));
+
+                      // 3) scroll doux
+                      document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+                    }}
                   >
                     En savoir plus
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -81,20 +110,7 @@ const Services = () => {
             );
           })}
         </div>
-
-        {/* CTA Section */}
-        <div className="text-center bg-gradient-to-r from-gray-900/50 to-gray-800/50 rounded-2xl p-8 border border-gray-700">
-          <h3 className="text-2xl font-bold text-white mb-4">Prêt à sécuriser votre projet ?</h3>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-            Contactez-nous pour discuter de vos besoins et obtenir un devis personnalisé pour votre projet.
-          </p>
-          <Button 
-            size="lg"
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white border-0 shadow-lg shadow-cyan-500/25"
-          >
-            Demander un devis
-          </Button>
-        </div>
+        <CtaSection />
       </div>
     </div>
   );
