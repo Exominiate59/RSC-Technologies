@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Code, Cog, Users, Award, Bug } from 'lucide-react';
+import { Shield, Code, Cog, Users, Award, Bug, Computer } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { mockData } from '../mock';
 import { useMode } from '../context/ModeContext';
@@ -10,8 +10,8 @@ const About = () => {
   // Stats selon le mode (plus crédible côté portfolio)
   const stats = mode === "rsc"
     ? [
-        { icon: Users, label: 'Technos maîtrisées', value: '10+', color: 'text-cyan-400' },
-        { icon: Award, label: 'Heures de pratique', value: '500+', color: 'text-blue-400' },
+        { icon: Award, label: 'Technos maîtrisées', value: '10+', color: 'text-cyan-400' },
+        { icon: Computer, label: 'Heures de pratique', value: '500+', color: 'text-blue-400' },
         { icon: Bug,   label: 'CTF / Labs TryHackMe', value: '30+', color: 'text-purple-400' },
       ]
     : [
