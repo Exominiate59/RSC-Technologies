@@ -21,7 +21,7 @@ export const mockData = {
       title: "CI • Build, Test & Mirror", 
       description: "Projet réalisé dans le cadre d'EPITECH, consistant à mettre en place une pipeline CI/CD automatisée avec GitHub Actions.", 
       technologies: ["GitHub Actions","Docker","Makefile","C","Shell"], 
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop", 
+      image: "devops.png", 
       category: "CI/CD", 
       status: "Completed",
       repo: "https://github.com/Exominiate59/CI-CD"
